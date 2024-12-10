@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- FontAwesome -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container1 {
+            position: relative;
+            background-image: url('./PK-en-20240708-POP_SIGNUP_TWO_WEEKS-perspective_WEB_d9d8c5d6-135c-4e04-9c6c-88de974b3794_small (2).jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+        }
+        body {
+            overflow-x: hidden;
+        }
+        #logo img {
+            height: 100px;
+            width: 200px;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        .btn {
+            background-color: rgb(233, 6, 6);
+            border-color:rgb(198, 5, 5);
+            color: white;
+            font-weight: bold;
+            width: 100px;
+        }
+        .btn:hover {
+            background-color: darkred;
+            border-color: darkred;
+            color: white;
+        }
+        .heading-container {
+            position: absolute;
+            top: 40%;
+            left: 11%;
+            text-align: center;
+            color: white;
+        }
+        #head1 {
+            font-size: 3.5vw; /* Responsive font size */
+            font-weight: 800;
+        }
+        #head2 {
+            font-size: 2.3vw; /* Responsive font size */
+        }
+        #head3 {
+            font-size: 2.2vw;
+        }
+        #Search {
+            padding: 10px;
+            font-size: 1.2rem;
+            border:1px solid lightgray;
+            border-radius: 4px;
+            margin: 20px 0;
+            height:9vh;
+            width: 40%;
+            background-color: rgba(22, 21, 21, 0.5); /* Semi-transparent background */
+            color: white; /* White text color */
+        }
+        #Search::placeholder {
+            color: white; /* Placeholder color */
+            opacity: 0.8; /* Slightly visible placeholder */
+        }
+        .btn1 {
+            background-color: red;
+            border-color: red;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn1:hover {
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn1 .fa-arrow-right {
+            margin-left: 2px; /* Space between text and icon */
+        }
+       
+        @media (max-width: 1200px) {
+            .btn1 {
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .btn1 {
+                padding: 7px 15px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .btn1 {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+
+            .btn1 .fa-arrow-right {
+                margin-left: 8px; /* Adjust spacing for smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn1 {
+                padding: 5px 10px;
+                font-size: 0.6rem;
+            }
+
+            .btn1 .fa-arrow-right {
+                margin-left: 6px; /* Adjust spacing for very small screens */
+            }
+        }
+        .container2 {
+            background-color: black;
+            height: 70vh;
+            width: 100%;
+        }
+        .row1 {
+            background-color: rgb(66, 64, 64);
+            height: 8px;
+        }
+        .row2 {
+            padding: 20px;
+            text-align: left;
+            color: white;
+            position: relative;
+            top: 30px; /* Align content a bit from the top */
+             /* Align content a bit from the left */
+        }
+        #head4 {
+            margin-bottom: 15px;
+            color: white;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-left: 120px;
+            margin-top: 90px;
+
+        }
+        #para1 {
+           
+            color: white;
+            margin-left: 20%;
+            
+        }
+        /* Ensure the image in #pic is responsive and fits well within its container */
+#pic img {
+    width: 60%;
+    height: 50vh; /* Maintain aspect ratio */
+    position: absolute;
+    left: 20%;
+}
+@media (max-width: 1200px) {
+    .container2 {
+        height: 110vh;
+        background-color: black; /* Adjust height for smaller screens */
+    } 
+    #para1 {
+        margin-left: 13%; /* Adjust margin */
+    }
+        }
+@media (max-width: 992px) {
+    #head4 {
+        font-size: 2rem; /* Adjust font size for smaller screens */
+        margin-left: 20px; /* Adjust margin */
+        margin-top: 40px; /* Adjust margin */
+    }
+
+    #para1 {
+        margin-left: 5%; /* Adjust margin */
+    }
+
+    #pic img {
+        width: 80%; /* Adjust width for smaller screens */
+        left: 10%; /* Adjust position */
+    }
+}
+
+@media (max-width: 768px) {
+    .container2 {
+        height: 130vh;
+        background-color: black; /* Adjust height for smaller screens */
+    }
+
+    #head4 {
+        font-size: 1.5rem; /* Further adjust font size */
+        margin-left: 10px; /* Adjust margin */
+        margin-top: 20px; /* Adjust margin */
+    }
+
+    #para1 {
+        margin-left: 0; /* Remove margin */
+    }
+
+    #pic img {
+        width: 50%; /* Adjust width for smaller screens */
+        left: 5%; /* Adjust position */
+    }
+}
+
+@media (max-width: 576px) {
+    #head4 {
+        font-size: 1.2rem; /* Further adjust font size */
+        margin-left: 0; /* Remove margin */
+        margin-top: 10px; /* Adjust margin */
+    }
+
+    #para1 {
+        font-size: 1rem; /* Adjust font size */
+        margin-left: 0; /* Remove margin */
+    }
+
+    #pic img {
+        width: 100%; /* Full width for very small screens */
+        left: 0; /* Adjust position */
+    }
+}
+.container3 {
+            background-color: black;
+            height: 100vh;
+            width: 100%;
+        }
+        .row3 {
+            background-color: rgb(66, 64, 64);
+            height: 8px;
+            
+        }
+        .row4 {
+           
+            text-align: left;
+            color: white;
+            position: relative;
+            top: 90px;
+           
+          
+            /* Align content a bit from the top */
+             /* Align content a bit from the left */
+        }
+        #head5 {
+            margin-bottom: 15px;
+            color: white;
+            font-size: 3rem;
+            font-weight: 800;
+            margin-left: 50px;
+            margin-top: 90px;
+
+        }
+        #para2 {
+           
+            color: white;
+            margin-left: 7%;
+            
+        }
+        #pic1 img{
+            height: 50vh;
+            width: 50%;
+            margin-left: 37%;
+        }
+       #pic2 img{
+        height: 50vh;
+        margin-top: -28%;
+        margin-left: 38%;
+       }
+       #pic3 img{
+        height: 15vh;
+        margin-top: -54%;
+        margin-left: 45%;
+       }
+        #para3{
+            margin-top: -32%;
+            margin-left: 57%;
+        }
+        #para4{
+            margin-top: 2%;
+            margin-left: 57%;
+        }
+        @media (max-width: 1200px) {
+     #head5 {
+        font-size: 2.5rem;
+        margin-left: 31%;
+        margin-top: 70px;
+    } 
+
+    #para2 {
+        margin-left: 30%;
+    }
+
+    #para3 {
+        margin-left: 45%;
+        margin-top: -25%;
+    }
+
+    #para4 {
+        margin-top: -2%;
+        margin-left: 45%;
+    }
+
+    #pic1 img {
+        margin-left: 25%;
+        margin-top: -8%;
+    }
+
+    #pic2 img {
+        margin-top: -20%;
+        margin-left: 31%;
+    }
+
+    #pic3 img {
+        margin-top: -40%;
+        margin-left: 36%;
+    } 
+}
+
+@media (max-width: 992px) {
+    #head5 {
+        font-size: 2rem;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
+
+    #para2 {
+        margin-left: 3%;
+    }
+
+    #para3,
+    #para4 {
+        margin-left: 45%;
+    }
+
+    #pic2 img {
+        margin-top: -10%;
+    }
+
+    #pic3 img {
+        margin-top: -20%;
+    }
+}
+
+@media (max-width: 768px) {
+    .container3 {
+        height: 90vh;
+    }
+
+    #head5 {
+        font-size: 1rem;
+        margin-left: 30%;
+        margin-top: 34px;
+    }
+
+    #para2 {
+        margin-left: 20%;
+        font-size: 1rem;
+    }
+
+    #para3{
+        margin-left: 42%;
+        margin-top: -28%;
+    }
+    #para4 {
+        margin-left: 42%;
+        margin-top: 1%;
+    }
+
+    #pic1 img {
+        margin-left: 22%;
+        margin-top: -12%;
+    }
+
+    #pic2 img {
+        margin-top: -20%;
+        margin-left: 28%;
+    }
+
+    #pic3 img {
+        margin-top: -40%;
+        margin-left: 33%;
+    }
+}
+
+@media (max-width: 425px) {
+    .container3{
+        height: 105vh;
+    }
+    #head5 {
+        font-size: 1.6rem;
+        margin-left: 0;
+        margin-top: 34px;
+        text-align: center;
+    }
+
+    #para2 {
+        font-size: 1rem;
+        margin-left: 10%;
+    }
+
+    #para3 {
+        margin-left: 42%;
+        margin-top: -50%;
+    }
+
+    #para4 {
+        margin-left: 42%;
+        margin-top: 4%;
+    }
+
+    #pic1 img {
+        width: 80%;
+        margin-left: 10%;
+        margin-top: -22%;
+    }
+
+    #pic2 img {
+        margin-top: -38%;
+        margin-left: 13%;
+    }
+
+    #pic3 img {
+        margin-top: -77%;
+        margin-left: 22%;
+    }
+}
+
+@media (max-width: 375px) {
+    .container3{
+        height: 100vh;
+    }
+    #head5 {
+        font-size: 1.1rem;
+        margin-left: 0;
+        margin-top: 34px;
+        text-align: center;
+    }
+
+    #para2 {
+        font-size: 0.9rem;
+        margin-left: 0;
+    }
+
+    #para3 {
+        margin-left: 40%;
+        margin-top: -55%;
+    }
+
+    #para4 {
+        margin-left: 40%;
+        margin-top: 7%;
+    }
+
+    #pic1 img {
+        width: 75%;
+        margin-left: 12%;
+    }
+
+    #pic2 img {
+        margin-top: -60%;
+        margin-left: 10%;
+    }
+
+    #pic3 img {
+        margin-top: -90%;
+        margin-left: 19%;
+    }
+}
+
+@media (max-width: 320px) {
+    #head5 {
+        font-size: 1.3rem;
+        margin-left: 0;
+        margin-top: 30px;
+        text-align: center;
+    }
+
+    #para2 {
+        font-size: 0.8rem;
+        margin-left: 0;
+    }
+
+    #para3 {
+        margin-left: 38%;
+        margin-top: -70%;
+    }
+
+    #para4 {
+        margin-left: 38%;
+        margin-top: 6%;
+    }
+
+    #pic1 img {
+        width: 80%;
+        margin-left: 10%;
+        margin-top: -25%;
+    }
+
+    #pic2 img {
+        margin-top: -55%;
+        margin-left: 4%;
+    }
+
+    #pic3 img {
+        margin-top: -105%;
+        margin-left: 17%;
+    }
+}
+.container4{
+    background-color: black;
+    height: 70vh;
+}
+.row5{
+    background-color: rgb(66, 64, 64);
+    height: 8px;
+}
+
+.row6{
+  width: 60%;
+    margin-top: 10%;
+    margin-left: 19%;
+}
+#head6{
+    color: white;
+    font-weight: 800;
+    font-size: 3rem;
+}
+#para5{
+    font-size: 1.5rem;
+    color: white;
+}
+@media(max-width:425px) 
+{
+    .row6{
+        width: 80%;
+        margin-left: 11%;
+    }
+}
+@media(max-width:375px) 
+{
+    .row6{
+        width: 90%;
+        margin-left: 6%;
+    }
+}
+@media(max-width:320px) 
+{
+    .row6{
+        width: 90%;
+        margin-left: 6%;
+    }
+    #head6{
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
+}
+}
+.container5{
+    height: 90vh;
+    background-color: black;
+}
+.row7{
+    height: 8px;
+    background-color: rgb(66, 64, 64);
+}
+.row8{
+    
+    margin-top: 2%;
+}
+#pic4 img{
+    width: 70%;
+    height: 60vh;
+    margin-left: 25%;
+    margin-top: 8%;
+}
+#head7{
+    color: white;
+    font-weight: 800;
+    font-size: 3rem;
+    margin-top: 20%;
+}
+#para6{
+    font-size: 1.5rem;
+    color: white;
+}
+@media(max-width:1200px) {
+    .container5{
+        height: 110vh;
+    }
+    #head7{
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-top: 5%;
+}
+#para6{
+    font-size: 1.5rem;
+    color: white;
+    margin-left:1%;
+}
+#pic4 img{
+    width: 40%;
+    height: 60vh;
+    margin-left: 24%;
+    margin-top: 8%;
+}
+}
+@media(max-width:768px) {
+    .container5{
+        height: 110vh;
+    }
+    #head7{
+    color: white;
+    font-weight: 800;
+    font-size: 1.7rem;
+    margin-top: 10%;
+}
+#para6{
+    font-size: 1rem;
+    color: white;
+    margin-left:1%;
+}
+#pic4 img{
+    width: 40%;
+    height: 60vh;
+    margin-left: 24%;
+    margin-top: 8%;
+}
+}
+@media(max-width:425px) {
+    .container5{
+        height: 110vh;
+    }
+    #head7{
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-top: 20%;
+}
+#para6{
+    font-size: 1.3rem;
+    color: white;
+    margin-left:1%;
+}
+#pic4 img{
+    width: 90%;
+    height: 60vh;
+    margin-left: 1%;
+    margin-top: 8%;
+}
+}
+@media(max-width:375px) {
+    .container5{
+        height: 110vh;
+    }
+    #head7{
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-top: 20%;
+}
+#para6{
+    font-size: 1rem;
+    color: white;
+    margin-left: 1%;
+}
+#pic4 img{
+    width: 90%;
+    height: 60vh;
+    margin-left: 1%;
+    margin-top: 8%;
+}
+}
+
+@media(max-width:320px) {
+    .container5{
+        height: 110vh;
+    }
+    #head7{
+    color: white;
+    font-weight: 800;
+    font-size: 2rem;
+    margin-top: 20%;
+}
+#para6{
+    font-size: 1rem;
+    color: white;
+}
+#pic4 img{
+    width: 100%;
+    height: 60vh;
+    margin-left: 1%;
+    margin-top: 8%;
+}
+}
+.btn-link {
+            font-size: 1rem;
+            text-decoration: none;
+        }
+        .plus-sign {
+            font-size: 2rem;
+        }
+        .faq-heading {
+            text-align: center;
+            color: white;
+            font-weight: 800;
+            font-size: 3rem;
+            
+        }
+        .card {
+            margin: 1rem 0;
+            background-color:rgb(66, 64, 64);
+        }
+        .container6{
+            background-color: black;
+            height: 150vh;
+        }
+        .row9{
+            background-color: rgb(66, 64, 64);
+            height: 8px;
+        }
+        #head8{
+            font-size: 2rem;
+            color: white;
+        }
+        #para8{
+            color: white;
+            font-size: 1.5rem;
+        }
+        #head9{
+            font-size: 2rem;
+            color: white;
+        }
+        #para9{
+            color: white;
+            font-size: 1.5rem;
+        }
+        #head10{
+            font-size: 2rem;
+            color: white;
+        }
+        #para10{
+            color: white;
+            font-size: 1.5rem;
+        }
+        #head11{
+            font-size: 2rem;
+            color: white;
+        }
+        #para11{
+            color: white;
+            font-size: 1.5rem;
+        }
+        #head12{
+            font-size: 2rem;
+            color: white;
+        }
+        #para12{
+            color: white;
+            font-size: 1.5rem;
+        }
+        #head13{
+            font-size: 2rem;
+            color: white;
+        }
+        #para13{
+            color: white;
+            font-size: 1.5rem;
+        }
+        #Search{
+            margin-left: 12rem;
+        }
+        .column3{
+            margin-top:5vh;
+    width: 200%;
+}
+ .row10{
+    width: 200%;
+ } 
+        @media(max-width:1200px){
+.column3{
+    width: 70%;
+}
+ .row10{
+    width: 80%;
+ }   
+.card{
+ width: 80%;
+} 
+#Search{
+    margin-left: 2rem;
+}  
+.faq-heading{
+    font-size: 2rem;
+    margin-left: -14%;
+} }
+@media(max-width:768px) {
+    .container6{
+        height: 150vh;
+    }
+    
+}
+@media(max-width:425px) {
+   
+    .container6{
+        height: 240vh;
+    }
+   .column3{
+    width: 100%;
+   }
+   #head8{
+    font-size: 1rem;
+   }
+   #head9{
+    font-size: 1rem;
+   }
+   #head10{
+    font-size: 1rem;
+   }
+   #head11{
+    font-size: 1rem;
+   }
+   #head12{
+    font-size: 1rem;
+   }
+   #head13{
+    font-size: 1rem;
+   }
+}
+.row11{
+    height: 8px;
+    background-color:rgb(66, 64, 64) ;
+    
+}
+.container7{
+    height: 80vh;
+    background-color: black;
+}
+@media(max-width:320px){
+    .container7{
+    height: 190vh;
+    background-color: black;
+}
+}
+@media(max-width:425px){
+    .container7{
+    height: 190vh;
+    background-color: black;
+}
+}
+@media(max-width:768px){
+    .container7{
+    height: 195vh;
+    background-color: black;
+}
+}
+@media(max-width:1024px){
+    .container7{
+    height: 195vh;
+    background-color: black;
+}
+}
+.row12{
+    margin-top: 10%;
+}
+ul{
+    margin-left: 12%;
+    
+}
+a{
+    text-decoration: underline;
+    margin: 0.2px;
+    list-style: none;
+    color: gray;
+}
+.column4{
+    margin-left: 8%;
+}
+.column5{
+    margin-left: 4%;
+}
+.column6{
+    margin-left: 4%;
+}
+.column7{
+    margin-left: 4%;
+}
+a:hover{
+    color: gray;
+}
+    </style>
+</head>
+<body>
+    <!-- head  -->
+    <div class="container-fluid container1">
+        <div class="overlay"></div>
+        <div class="row content">
+            <div class="col-xl-1"></div>
+            <div class="col-xl-2" id="logo"></div>
+            <div class="col-xl-2"></div>
+            <div class="col-xl-2"></div>
+            <div class="col-xl-2"></div>
+            <div class="col-xl-3">
+               <a style="text-decoration: none;" href="./Signup.html"> <button class="btn ml-5 mt-4 d-inline" id="button" onclick="signup()"></button></a>
+            </div>
+        </div>
+<!-- for headings -->
+        <div class="heading-container ">
+            <div class="heading">
+                <h1 id="head1"></h1>
+            </div>
+            <div class="heading1">
+                <h3 id="head2"></h3>
+            </div>
+            <div class="heading2">
+                <h3 id="head3"></h3>
+            </div>
+            <input type="text" placeholder="Email Adress" id="Search">
+            <a style="text-decoration: none;" href="./Signup.html"><button class="btn1 ml-1 mt-3 d-inline" id="button1" onclick="signup1()">Get Started <i class="fas fa-arrow-right"></i></button></a>
+        </div>
+    </div>
+    <div class="container-fluid container2">
+        <div class="row row1"></div>
+        <div class="row row2">
+            <div class="col-xl-6 ">
+                <h2 id="head4"></h2>
+                <p id="para1" style="font-size: 1.5rem;"></p>
+            </div>
+            <div class="col-xl-6 " id="pic">
+                <video style="height:100%;width:100%;" controls muted autoplay loop>
+                    <source src="c:\Users\A.S\Desktop\mern stack\do's\netfix js\Netflix Pakistan - Watch TV Shows Online, Watch Movies Online.m4v" type="video/mp4" />
+                  </video>
+                 </div>
+                
+        </div>
+    </div>
+    <div class="container-fluid container3">
+        <div class="row row3"></div>
+        <div class="row row4">
+            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                <div id="pic1"></div>
+                <div id="pic2"></div>
+                <div id="pic3"></div>
+                <p id="para3" class="text-white"></p>
+                <p id="para4" class="text-primary"></p>
+            </div>
+            <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12">
+                <h2 id="head5"></h2>
+                <p id="para2" style="font-size: 1.5rem;"></p>
+            </div>
+        </div>
+    </div>
+<div class="container-fluid container4">
+    <div class="row row5"></div>
+    <div class="row  row6">
+        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12  column">
+            <h2 id="head6"></h2>
+                <p id="para5" ></p>
+        </div>
+    </div>
+</div>
+<div class="container-fluid container5">
+    <div class="row row7 "></div>
+    <div class="row row8 ">
+        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12  column1">
+            <div id="pic4"></div>
+        </div>
+        <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 col-12 column2">
+            <h2 id="head7"></h2>
+            <p id="para6" ></p>
+        </div>
+    </div>
+</div>
+<!-- asked questions  -->
+<div class="container-fluid container6">
+    <div class="row row9"></div>
+<div class="container ">
+    <h2 class="faq-heading mt-4">Frequently Asked Questions</h2>
+    <div class="accordion" id="faqAccordion">
+        <!-- Repeat this block for each FAQ item -->
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0 " id="head8"></h5>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="false" aria-controls="collapse1">
+                    <span class="plus-sign">+</span>
+                </button>
+            </div>
+            <div id="collapse1" class="collapse" data-parent="#faqAccordion">
+                <div class="card-body " id="para8">
+                    Answer to question 1.
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0" id="head9"></h5>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                    <span class="plus-sign">+</span>
+                </button>
+            </div>
+            <div id="collapse2" class="collapse" data-parent="#faqAccordion">
+                <div class="card-body" id="para9">
+                
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0" id="head10"></h5>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                    <span class="plus-sign">+</span>
+                </button>
+            </div>
+            <div id="collapse3" class="collapse" data-parent="#faqAccordion">
+                <div class="card-body" id="para10">
+                
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0" id="head11"></h5>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                    <span class="plus-sign">+</span>
+                </button>
+            </div>
+            <div id="collapse4" class="collapse" data-parent="#faqAccordion">
+                <div class="card-body"  id="para11">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0" id="head12"></h5>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                    <span class="plus-sign">+</span>
+                </button>
+            </div>
+            <div id="collapse5" class="collapse" data-parent="#faqAccordion">
+                <div class="card-body"  id="para12">
+                    
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0"  id="head13"></h5>
+                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse6" aria-expanded="false" aria-controls="collapse6">
+                    <span class="plus-sign">+</span>
+                </button>
+            </div>
+            <div id="collapse6" class="collapse" data-parent="#faqAccordion">
+                <div class="card-body"  id="para13">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row  row10">
+        <div class="col-xl-6 column3">
+            <h3 class="d-flex justify-content-center text-light" id="head14"></h3>
+            <input class=""  type="e-mail" placeholder="E-mail Adress" id="Search">
+            <a style="text-decoration: none;" href="./Signup.html"><button class="btn1 ml-5 mt-4 d-inline " id="button2" onclick="signup2()">Get Started <i class="fas fa-arrow-right"></i></button></a>
+        </div>
+    </div>
+</div>
+</div>
+<!-- footer  -->
+<div class="container-fluid container7">
+    <div class="row row11 "></div>
+    <div class="row row12">
+    <div class="col-xl-2 column4">
+        <ul>
+            <a href=""><li>Questions? Contact us.</li></a>
+            <a href=""><li>FAQ</li></a>
+            <a href=""><li>Investor Relations</li></a>
+            <a href=""><li>Privacy</li></a>
+            <a href=""><li>Speed Test</li></a>
+            <a href=""><li>
+                <button class="btn w-50 dropdown-toggle" style="background-color:rgb(66, 64, 64); color: white; text-decoration: none;  border: none;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    English
+                  </button>
+                  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">English</a>
+                     <a class="dropdown-item" href="#">English</a>
+                   
+                  </div></li></a>
+            <a href=""><li>Netflix Pakistan</li></a>
+        </ul>
+    </div>
+    <div class="col-xl-2  column5">
+        <ul>
+            <a href=""><li>
+                Help Center</li></a>
+                <a href=""><li>Jobs</li></a>
+                <a href=""><li>
+                    Cookie Preferences</li></a>
+                <a href="">
+                    <li>
+                        Legal Notices</li>
+                </a>
+        </ul>
+    </div>
+    <div class="col-xl-2   column6">
+        <ul>
+            <a href=""><li>
+                Account</li></a>
+                <a href=""><li>Ways to Watch</li></a>
+                <a href=""><li>
+                    Corporate Information</li></a>
+                    <a href=""><li>Only on Netflix</li></a>
+        </ul>
+    </div>
+    <div class="col-xl-2  column7">
+        <ul>
+            <a href=""><li>
+                Media Center</li></a>
+                <a href=""><li>
+                    Terms of Use</li></a>
+                    <a href=""><li>Contact Us</li></a>
+        </ul>
+    </div>
+    </div>
+</div>
+<div style="height:8vh;width:100;background-color: black;" class="container-fluid">
+</div>
+
+    <script>
+        const navbar_Data = [
+            { nav: '<img src="./Netflix_Logo_PMS.png" alt="Logo">' },
+            { nav: 'Sign Up' },
+            { nav: 'Unlimited movies, TV shows, and more' },
+            { nav: 'Watch anywhere. Cancel anytime.' },
+            { nav: 'Ready to watch? Enter your email to create or restart your membership.' },
+            { nav: 'Enjoy on your TV' },
+            { nav: 'Watch on Smart TVs, Playstation, Xbox, <br> Chromecast, Apple TV, Blu-ray players,<br> and more.' },
+            {
+                nav:'<img src="./tv.png">'
+            },
+            {
+               nav:'<img src="./mobile-0819.jpg">'
+            },
+            {
+              nav:'Download your <br> shows to watch <br> offline'
+            },
+            {
+                nav:'Save your favorites easily and always have <br> something to watch.'
+            },
+            {
+               nav:'<img src="./st_small_507x507-pad_600x600_f8f8f8-removebg-preview.png">'
+            },
+            {
+                nav:'<img src="./boxshot.png">'
+            },
+            {
+                nav:'Stranger Things'
+            },
+            {
+                nav:'Downloading...'
+            },
+            {
+              nav:'Watch everywhere'
+            },
+            {
+                nav:'Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.'
+            },
+            {
+                nav:'<img src="./AAAABejKYujIIDQciqmGJJ8BtXkYKKTi5jiqexltvN1YmvXYIfX8B9CYwooUSIzOKneblRFthZAFsYLMgKMyNfeHwk16DmEkpIIcb6A3.png">'
+            },
+            {
+                nav:'Create profiles for kids'
+
+            },
+            {
+             nav:'Send kids on adventures with their favorite<br> characters in a space made just for them—free <br> with your membership.'
+            },
+            {
+                nav:'What is Netflix?'
+            },
+            {
+                nav:'Netflix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices. <br>You can watch as much as you want, whenever you want without a single commercial all for one low monthly price.Theres always something new to discover and new TV shows and movies are added every week.'
+            },
+            {
+               nav:'How much does Netflix Cost?' 
+            },
+            {
+                nav:'Watch Netflix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from Rs 250 to Rs 1,100 a month. No extra costs, no contracts.'
+            },
+            {
+                nav:'Where can I Watch?'
+            },
+            {
+                nav:'Watch anywhere, anytime. Sign in with your Netflix account to watch instantly on the web at netflix.com from your personal computer or on any internet-connected device that offers the Netflix app, including smart TVs, smartphones, tablets, streaming media players and game consoles.You can also download your favorite shows with the iOS or Android app. Use downloads to watch while you are on the go and without an internet connection. Take Netflix with you anywhere.'
+            },
+            {
+                nav:'How do I Cancel?'
+            },
+            {
+                nav:'Netflix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees – start or stop your account anytime.'
+            },
+            {
+                nav:'What cam I watch on Netflix?'
+            },
+            {
+                nav:'Netflix has an extensive library of feature films, documentaries, TV shows, anime, award-winning Netflix originals, and more. Watch as much as you want, anytime you want.'
+            },
+            {
+                nav:'Is Netflix good for Kids?'
+            },
+            {
+                nav:'The Netflix Kids experience is included in your membership to give parents control while kids enjoy family-friendly TV shows and movies in their own space.Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.'
+            },
+            {
+                nav:'Ready to watch? Enter your email to create or restart your membership.'
+            }
+            ];
+
+        document.getElementById('logo').innerHTML = navbar_Data[0].nav;
+        document.getElementById('button').innerHTML = navbar_Data[1].nav;
+        document.getElementById('head1').innerHTML = navbar_Data[2].nav;
+        document.getElementById('head2').innerHTML = navbar_Data[3].nav;
+        document.getElementById('head3').innerHTML = navbar_Data[4].nav;
+        document.getElementById('head4').innerHTML = navbar_Data[5].nav;
+        document.getElementById('para1').innerHTML = navbar_Data[6].nav;
+        document.getElementById('pic').innerHTML = navbar_Data[7].nav;
+        document.getElementById('pic1').innerHTML = navbar_Data[8].nav;
+        document.getElementById('head5').innerHTML = navbar_Data[9].nav;
+        document.getElementById('para2').innerHTML = navbar_Data[10].nav;
+        document.getElementById('pic2').innerHTML = navbar_Data[11].nav;
+        document.getElementById('pic3').innerHTML = navbar_Data[12].nav;
+        document.getElementById('para3').innerHTML = navbar_Data[13].nav;
+        document.getElementById('para4').innerHTML = navbar_Data[14].nav;
+        document.getElementById('head6').innerHTML = navbar_Data[15].nav;
+        document.getElementById('para5').innerHTML = navbar_Data[16].nav;
+        document.getElementById('pic4').innerHTML = navbar_Data[17].nav;
+        document.getElementById('head7').innerHTML = navbar_Data[18].nav;
+        document.getElementById('para6').innerHTML = navbar_Data[19].nav;
+        document.getElementById('head8').innerHTML = navbar_Data[20].nav;
+        document.getElementById('para8').innerHTML = navbar_Data[21].nav;
+         document.getElementById('head9').innerHTML=navbar_Data[22].nav;
+         document.getElementById('para9').innerHTML = navbar_Data[23].nav;
+        document.getElementById('head10').innerHTML=navbar_Data[24].nav;
+        document.getElementById('para10').innerHTML = navbar_Data[25].nav;
+        document.getElementById('head11').innerHTML=navbar_Data[26].nav;
+        document.getElementById('para11').innerHTML = navbar_Data[27].nav;
+        document.getElementById('head12').innerHTML=navbar_Data[28].nav;
+        document.getElementById('para12').innerHTML = navbar_Data[29].nav;
+        document.getElementById('head13').innerHTML=navbar_Data[30].nav;
+        document.getElementById('para13').innerHTML = navbar_Data[31].nav;
+        document.getElementById('head14').innerHTML=navbar_Data[32].nav;
+       
+
+        document.addEventListener('DOMContentLoaded', function () {
+        var collapseElements = document.querySelectorAll('.collapse');
+        collapseElements.forEach(function(collapseElement) {
+            var plusSign = collapseElement.parentElement.querySelector('.plus-sign');
+            
+            collapseElement.addEventListener('show.bs.collapse', function () {
+                plusSign.textContent = '-';
+            });
+
+            collapseElement.addEventListener('hide.bs.collapse', function () {
+                plusSign.textContent = '+';
+            });
+        });
+    });
+    </script>
+  
+    
+   </body> 
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYU"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </html>

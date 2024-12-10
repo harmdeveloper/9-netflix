@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- FontAwesome -->
+</head>
+<style>
+     * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container1 {
+            position: relative;
+            background-image: url('./PK-en-20240708-POP_SIGNUP_TWO_WEEKS-perspective_WEB_d9d8c5d6-135c-4e04-9c6c-88de974b3794_small (2).jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5); /* Black overlay with 50% opacity */
+        }
+        body {
+            overflow-x: hidden;
+        }
+        #logo img {
+            height: 100px;
+            width: 200px;
+        }
+        .content {
+            position: relative;
+            z-index: 1;
+        }
+        .btn {
+            background-color: red;
+            border-color: red;
+            color: white;
+        }
+        .btn:hover {
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .heading-container {
+            position: absolute;
+            top: 40%;
+            left: 11%;
+            text-align: center;
+            color: white;
+        }
+        #head1 {
+            font-size: 4vw; /* Responsive font size */
+            font-weight: 800;
+        }
+        #head2 {
+            font-size: 2.3vw; /* Responsive font size */
+        }
+        #head3 {
+            font-size: 2.2vw;
+        }
+        #Search {
+            padding: 10px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 4px;
+            margin: 20px 0;
+            width: 40%;
+            background-color: rgba(22, 21, 21, 0.5); /* Semi-transparent background */
+            color: white; /* White text color */
+        }
+        #Search::placeholder {
+            color: white; /* Placeholder color */
+            opacity: 0.8; /* Slightly visible placeholder */
+        }
+        .btn1 {
+            background-color: red;
+            border-color: red;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .btn1:hover {
+            background-color: darkred;
+            border-color: darkred;
+        }
+        .btn1 .fa-arrow-right {
+            margin-left: 10px; /* Space between text and icon */
+        }
+       
+        @media (max-width: 1200px) {
+            .btn1 {
+                padding: 8px 18px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .btn1 {
+                padding: 7px 15px;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .btn1 {
+                padding: 6px 12px;
+                font-size: 0.7rem;
+            }
+
+            .btn1 .fa-arrow-right {
+                margin-left: 8px; /* Adjust spacing for smaller screens */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .btn1 {
+                padding: 5px 10px;
+                font-size: 0.6rem;
+            }
+
+            .btn1 .fa-arrow-right {
+                margin-left: 6px; /* Adjust spacing for very small screens */
+            }
+        }
+        .row11{
+    height: 8px;
+    background-color:rgb(66, 64, 64) ;
+    
+}
+.container7{
+    height: 80vh;
+    background-color: black;
+}
+@media(max-width:320px){
+    .container7{
+    height: 190vh;
+    background-color: black;
+}
+}
+@media(max-width:425px){
+    .container7{
+    height: 190vh;
+    background-color: black;
+}
+}
+@media(max-width:768px){
+    .container7{
+    height: 195vh;
+    background-color: black;
+}
+}
+@media(max-width:1024px){
+    .container7{
+    height: 195vh;
+    background-color: black;
+}
+}
+.row12{
+    margin-top: 10%;
+}
+ul{
+    margin-left: 12%;
+    
+}
+a{
+    text-decoration: underline;
+    margin: 0.2px;
+    list-style: none;
+    color: gray;
+}
+.column4{
+    margin-left: 8%;
+}
+.column5{
+    margin-left: 4%;
+}
+.column6{
+    margin-left: 4%;
+}
+.column7{
+    margin-left: 4%;
+}
+a:hover{
+    color: gray;
+}
+
+    .container{
+        margin-top: -6%;
+    }.form-container {
+      background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+      opacity: 0.9;
+      padding: 30px;
+      border-radius: 10px;
+      color: white; /* Make text white for better readability */
+      width: 100%;
+      max-width: 400px;
+    }
+    .form-control {
+        background-color: rgba(0, 0, 0, 0.8); /* Black with opacity */
+      opacity: 0.9;
+      padding: 1rem; /* Increased padding inside the input fields */
+    }
+.b1{
+    background-color: red;
+            border-color: red;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 4px;
+            font-size: 1rem;
+}
+</style>
+<body>
+    <div class="container-fluid container1">
+        <div class="overlay"></div>
+        <div class="row content">
+            <div class="col-xl-1"></div>
+            <div class="col-xl-2" id="logo"></div>
+            <div class="col-xl-2"></div>
+            <div class="col-xl-2"></div>
+            <div class="col-xl-2"></div>
+            <div class="container d-flex justify-content-center align-items-center min-vh-100">
+                <div class="form-container ">
+                  <h2 class="my-5 ">Sign In</h2>
+                  <form id="signInForm">
+                    <div class="mb-3 ">
+                      <label for="Name" class="form-label ">Name</label>
+                      <input type="Name" class="form-control p-4" id="Name" placeholder="Name" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <input type="password" class="form-control p-4" id="password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-outline-secondary w-100 mt-2">Sign In</button>
+                    <div class="mt-3 text-center">
+                      <a href="./index.html" class="link-primary">Forgot password?</a>
+                    </div>
+                  </form>
+                </div>
+              </div>
+        </div>
+        <!-- <div class="modal" id="exampleModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body" id="modalBody">
+                    </div>
+                    <div class="modal-footer">
+                        <a style="text-decoration: none;" href="./accounts1.html"><button type="button" class="btn btn-primary" id="doneBtn">Let's go</button></a>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+    </div>
+    
+    <div class="container-fluid container7">
+        <div class="row row11 "></div>
+        <div class="row row12">
+        <div class="col-xl-2 column4">
+            <ul>
+                <a href=""><li>Questions? Contact us.</li></a>
+                <a href=""><li>FAQ</li></a>
+                <a href=""><li>Investor Relations</li></a>
+                <a href=""><li>Privacy</li></a>
+                <a href=""><li>Speed Test</li></a>
+                <a href=""><li>
+                    <button class="btn w-50 dropdown-toggle" style="background-color:rgb(66, 64, 64); color: white; text-decoration: none;  border: none;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        English
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">English</a>
+                         <a class="dropdown-item" href="#">English</a>
+                       
+                      </div></li></a>
+                <a href=""><li>Netflix Pakistan</li></a>
+            </ul>
+        </div>
+        <div class="col-xl-2  column5">
+            <ul>
+                <a href=""><li>
+                    Help Center</li></a>
+                    <a href=""><li>Jobs</li></a>
+                    <a href=""><li>
+                        Cookie Preferences</li></a>
+                    <a href="">
+                        <li>
+                            Legal Notices</li>
+                    </a>
+            </ul>
+        </div>
+        <div class="col-xl-2   column6">
+            <ul>
+                <a href=""><li>
+                    Account</li></a>
+                    <a href=""><li>Ways to Watch</li></a>
+                    <a href=""><li>
+                        Corporate Information</li></a>
+                        <a href=""><li>Only on Netflix</li></a>
+            </ul>
+        </div>
+        <div class="col-xl-2  column7">
+            <ul>
+                <a href=""><li>
+                    Media Center</li></a>
+                    <a href=""><li>
+                        Terms of Use</li></a>
+                        <a href=""><li>Contact Us</li></a>
+            </ul>
+        </div>
+        </div>
+    </div>
+    <div style="height:8vh;width:100;background-color: black;" class="container-fluid">
+    </div>
+
+</body>
+
+<script>
+    const navbar_Data = [
+       { nav: '<img src="./Netflix_Logo_PMS.png" alt="Logo">' }, 
+];
+document.getElementById('logo').innerHTML = navbar_Data[0].nav;
+</script>
+
+<!-- 
+// // Display the values in the modal
+// document.getElementById('modalBody').innerHTML = `
+//     <p>Hi! ${Name} </p>
+//     <p>Enjoy Unlimited movies, TV shows, and more here!</p>
+// `;
+
+// // Show the modal
+// $('#exampleModal').modal('show'); -->
+
+<script>
+    document.getElementById('signInForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the form from submitting the traditional way
+
+
+    const name = document.getElementById('Name').value;
+    const password = document.getElementById('password').value;
+
+
+    const storedName = localStorage.getItem('userName:');
+    const storedPassword = localStorage.getItem('userPassword:');
+
+    const errorElement = document.getElementById('error');
+    
+    if (name === storedName && password === storedPassword) {
+        alert('Sign In successful!');
+        window.location.href = 'accounts1.html';
+    } else {
+        alert('Invalid username or password');
+    }
+
+});
+
+
+
+</script>
+
+
+    <!-- JS and jQuery libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.min.js"></script>
+</html>

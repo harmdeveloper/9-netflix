@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- FontAwesome -->
+</head>
+<style>
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #111;
+    overflow-x: hidden;
+
+}
+.row_poster{
+    width: 100%;
+    object-fit: contain;
+    max-height: 100px;
+    margin-right: 10px;
+    transition: transform 450ms;
+}
+.row_posters{
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding: 20px;
+}
+.row_poster:hover{
+    transform: scale(1.08);
+
+}
+.row_posters::-webkit-scrollbar{
+    display: none;
+}
+.row_posterLarge{
+    max-height: 250px;
+}
+.row_posterLarge:hover{
+    transform: scale(1.09);
+}
+.row{
+    color: white;
+    margin-left: 20px;
+}
+.banner{
+    background-image: url(./banner.jpg);
+    background-size: cover;
+    background-position: center center;
+    color:white;
+    object-fit:contain;
+    height: 448px;
+}
+.banner_contains{
+    margin-left: 30px;
+    padding-top: 140px;
+    height: 190px;
+
+}
+.banner_title{
+font-size: 3rem;
+font-weight: 800;
+padding-bottom: 0,3rem;
+
+}
+.banner_description{
+    width: 45rem;
+    line-height: 1.3;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    max-width: 360px;
+    height: 180px;
+}
+.banner_button{
+    cursor: pointer;
+    color: #fff;
+    outline: none;
+    border: none;
+    font-weight: 700;
+    border-radius: 0.2vw;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-color: rgba(51,51,51,0.5);
+}
+.banner_button:hover{
+    color: #000;
+    background-color: #e6e6e6e6;
+    transition: all 0.2s;
+}
+.banner--fadebottom{
+    margin-top: 145px;
+    height: 7.4rem;
+    background-image: linear-gradient(180deg, transparent, rgba(37,37,37,0.61),#111);
+}
+.nav_logo{
+    width: 80px;
+    object-fit: contain;
+}
+.nav_avatar{
+    width: 30px;
+    object-fit: contain;
+}
+.nav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    z-index: 1;
+    transition-timing-function: ease-in;
+    transition: all 0.5s;
+}
+.nav_black{
+    background-color: #111;
+}
+/* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.9);
+            padding-top: 60px;
+        }
+
+        .modal-content {
+            margin: auto;
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            background-color: #000;
+        }
+
+        .modal-content video {
+            width: 100%;
+            height: auto;
+        }
+
+        .modal-content .description {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .modal-content .options {
+            margin-top: 10px;
+        }
+
+        .modal-content .options button {
+            background-color: #e50914;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .modal-content .recommended {
+            margin-top: 30px;
+        }
+
+        .modal-content .recommended img {
+            width: 150px;
+            margin-right: 5px;
+            cursor: pointer;
+            
+            }
+
+        .close {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: white;
+        }
+        .nav_logo {
+            width: 80px;
+            object-fit: contain;
+        }
+
+        .nav_avatar {
+            width: 30px;
+            object-fit: contain;
+        }
+
+        .nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            z-index: 1;
+            transition-timing-function: ease-in;
+            transition: all 0.5s;
+            background-color: #111;
+        }
+
+        .nav_black {
+            background-color: #111;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .nav-item {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+        }
+.nav-item:hover{
+    text-decoration: none;
+    color: #e50914;
+    cursor: pointer;
+}
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            cursor: pointer;
+            color: #fff;
+        }
+        .nav-icon:hover{
+            color: #e50914;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        #myVideo {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            object-fit: cover;
+        }
+
+        .content {
+            position: absolute;
+            bottom: 30%;
+            left: 10%;
+            padding: 20px;
+            color: #f1f1f1;
+            width: 50%;
+            text-align: left;
+        }
+
+        #myBtn {
+            width: 200px;
+            font-size: 18px;
+            padding: 10px;
+            border: none;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        #myBtn:hover {
+            background: #ddd;
+            color: black;
+        }
+
+        .carousel-inner {
+            display: flex;
+            flex-direction: row;
+            overflow: hidden;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+        .container7{
+    height: 100vh;
+    background-color: black;
+}
+@media(max-width:320px){
+    .container7{
+    height: 190vh;
+    background-color: black;
+}
+}
+@media(max-width:425px){
+    .container7{
+    height: 190vh;
+    background-color: black;
+}
+}
+@media(max-width:768px){
+    .container7{
+    height: 195vh;
+    background-color: black;
+}
+}
+@media(max-width:1024px){
+    .container7{
+    height: 195vh;
+    background-color: black;
+}
+}
+.row12{
+    margin-top: 10%;
+}
+ul{
+    margin-left: 12%;
+    
+}
+a{
+    text-decoration: underline;
+    margin: 0.2px;
+    list-style: none;
+    color: gray;
+}
+.column4{
+    margin-left: 8%;
+}
+.column5{
+    margin-left: 4%;
+}
+.column6{
+    margin-left: 4%;
+}
+.column7{
+    margin-left: 4%;
+}
+a:hover{
+    color: gray;
+}
+li:hover{
+    cursor: pointer;
+    color: red;
+
+}
+
+</style>
+<body>
+ <!-- container for nav and banner -->
+ <div class="container-fluid  p-0">
+    <!-- nav -->
+    <nav class="nav" id="nav">
+        <div class="nav-left">
+            <img src="./netflix-logo.png" alt="Netflix Logo" class="nav_logo">
+            <div class="nav-links">
+                <a href="#" class="nav-item ml-5" id="A1">Home</a>
+                <a href="#" class="nav-item"  id="A2"> Tv shows</a>
+                <a href="#" class="nav-item"  id="A3"> Movies</a>
+                <a href="#" class="nav-item"  id="A4">News and populars</a>
+                <a href="#" class="nav-item"  id="A5">My list </a>
+                <a href="#" class="nav-item"  id="A6">Browse my Languages</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <i class="fas fa-search nav-icon" id="searchIcon"></i>
+            <i class="fas fa-bell nav-icon"></i>
+            
+            <img src="./netflix-avatar.png" alt="Netflix Avatar" class="nav_avatar">
+        </div>
+    </nav>
+
+    <!-- banner -->
+    <div class="video-container">
+        <video autoplay muted loop id="myVideo">
+            <source src="videoplayback.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <div class="content">
+            <h1 id="head1" style="color: #e50914; font-weight: 800;">KRAVEN</h1>
+            <p id="para1">'A new trailer for "Kraven" reveals the complex relationship between Nikolai and his son, exploring themes of hunting, legacy, and identity.'</p>
+            <button id="myBtn" onclick="myFunction()">More Info</button>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <h2 style="margin-top: 10px;">NETFLIX ORIGNALS</h2>
+    <div class="row_posters">
+         <!-- Trigger Image -->
+<img src="./large-movie1.jpg" alt="Movie Thumbnail" class="row_posterLarge" id="myImg">
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+
+    <!-- Modal content -->
+    <div class="modal-content">
+              
+           <iframe width="800" height="415" src="https://www.youtube.com/embed/EnjTEzi7m0k?si=l_c85E4y4ydPaCpy" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+        <div class="description">
+            <p>In the first season, we followed the early days and rise to stardom of the Sun of Mexico. Relive the best and worst moments of Luis Miguel, alongside his father Luisito Rey, and his mother, Marcela Basteri. Don't miss the premiere of the second season of Luis Miguel, The Series this April 18th, only on Netflix.
+</p>
+        </div>
+
+        <div class="options">
+            <button>Download</button>
+        </div>
+
+        <div class="recommended">
+            <h3>Recommended Videos</h3>
+            &nbsp;<img src="./large-movie1.jpg" alt="Recommended Video 1"> &nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="./large-movie4.jpg" alt="Recommended Video 2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="./large-movie3.jpg" alt="Recommended Video 3">&nbsp;&nbsp;&nbsp;&nbsp;
+            <img src="./large-movie6.jpg" alt="Recommended Video 2">
+            <br><br>
+        </div>
+    </div>
+</div>
+<img src="./large-movie2.jpg" alt="Movie 2 Thumbnail" class="row_posterLarge">
+<img src="./large-movie3.jpg" alt="Movie 3 Thumbnail" class="row_posterLarge">
+<img src="./large-movie4.jpg" alt="Movie 4 Thumbnail" class="row_posterLarge">
+<img src="./large-movie5.jpg" alt="Movie 5 Thumbnail" class="row_posterLarge">
+<img src="./large-movie6.jpg" alt="Movie 6 Thumbnail" class="row_posterLarge">
+<img src="./large-movie7.jpg" alt="Movie 7 Thumbnail" class="row_posterLarge">
+<img src="./large-movie8.jpg" alt="Movie 8 Thumbnail" class="row_posterLarge">
+<img src="./large-movie2.jpg" alt="Movie 2 Thumbnail" class="row_posterLarge">
+<img src="./large-movie3.jpg" alt="Movie 3 Thumbnail" class="row_posterLarge">
+<img src="./large-movie4.jpg" alt="Movie 4 Thumbnail" class="row_posterLarge">
+<img src="./large-movie5.jpg" alt="Movie 5 Thumbnail" class="row_posterLarge">
+<img src="./large-movie6.jpg" alt="Movie 6 Thumbnail" class="row_posterLarge">
+<img src="./large-movie7.jpg" alt="Movie 7 Thumbnail" class="row_posterLarge">
+<img src="./large-movie8.jpg" alt="Movie 8 Thumbnail" class="row_posterLarge">
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <video controls>
+            <source id="modalVideo" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="description" id="modalDescription">
+            <p>Movie Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida.</p>
+        </div>
+
+        <div class="options">
+            <button>Download</button>
+        </div>
+
+        <div class="recommended">
+            <h3>Recommended Videos</h3>
+            <img src="recommended1.jpg" alt="Recommended Video 1">
+            <img src="recommended2.jpg" alt="Recommended Video 2">
+            <img src="recommended3.jpg" alt="Recommended Video 3">
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+    <!-- trending now -->
+    <div class="row">
+        <h2 id="head3"> Trending Now</h2>
+        <div class="row_posters">
+            <img src="./small-movie2.jpg" alt="Movie 2 Thumbnail" class="row_poster">
+            <img src="./small-movie3.jpg" alt="Movie 3 Thumbnail" class="row_poster">
+            <img src="./small-movie4.jpg" alt="Movie 4 Thumbnail" class="row_poster">
+            <img src="./small-movie5.jpg" alt="Movie 5 Thumbnail" class="row_poster">
+            <img src="./small-movie6.jpg" alt="Movie 6 Thumbnail" class="row_poster">
+            <img src="./small-movie7.jpg" alt="Movie 7 Thumbnail" class="row_poster">
+            <img src="./small-movie8.jpg" alt="Movie 8 Thumbnail" class="row_poster">
+            <img src="./small-movie2.jpg" alt="Movie 2 Thumbnail" class="row_poster">
+            <img src="./small-movie3.jpg" alt="Movie 3 Thumbnail" class="row_poster">
+            <img src="./small-movie4.jpg" alt="Movie 4 Thumbnail" class="row_poster">
+            <img src="./small-movie5.jpg" alt="Movie 5 Thumbnail" class="row_poster">
+            <img src="./small-movie6.jpg" alt="Movie 6 Thumbnail" class="row_poster">
+            <img src="./small-movie7.jpg" alt="Movie 7 Thumbnail" class="row_poster">
+            <img src="./small-movie8.jpg" alt="Movie 8 Thumbnail" class="row_poster">
+            
+            <div id="myModal" class="modal">
+                <span class="close">&times;</span>
+            
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <video controls>
+                        <source id="modalVideo" src="" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+            
+                    <div class="description" id="modalDescription">
+                        <p>Movie Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida.</p>
+                    </div>
+            
+                    <div class="options">
+                        <button>Download</button>
+                    </div>
+            
+                    <div class="recommended">
+                        <h3>Recommended Videos</h3>
+                        <img src="recommended1.jpg" alt="Recommended Video 1">
+                        <img src="recommended2.jpg" alt="Recommended Video 2">
+                        <img src="recommended3.jpg" alt="Recommended Video 3">
+                    </div>
+                </div>
+            </div>
+            
+                </div>
+            </div>
+            
+        </div>
+    </div>
+      
+    <!-- top rated -->
+    <div class="row">
+        <h2 class="head4">Top Rated</h2>
+        <div class="row_posters">
+ <img src="./small-movie1.jpg" alt="Movie 2 Thumbnail" class="row_poster">
+<img src="./small-movie3.jpg" alt="Movie 3 Thumbnail" class="row_poster">
+<img src="./small-movie4.jpg" alt="Movie 4 Thumbnail" class="row_poster">
+<img src="./small-movie5.jpg" alt="Movie 5 Thumbnail" class="row_poster">
+<img src="./small-movie6.jpg" alt="Movie 6 Thumbnail" class="row_poster">
+<img src="./small-movie7.jpg" alt="Movie 7 Thumbnail" class="row_poster">
+<img src="./small-movie8.jpg" alt="Movie 8 Thumbnail" class="row_poster">
+<img src="./small-movie2.jpg" alt="Movie 2 Thumbnail" class="row_poster">
+<img src="./small-movie3.jpg" alt="Movie 3 Thumbnail" class="row_poster">
+<img src="./small-movie4.jpg" alt="Movie 4 Thumbnail" class="row_poster">
+<img src="./small-movie5.jpg" alt="Movie 5 Thumbnail" class="row_poster">
+<img src="./small-movie6.jpg" alt="Movie 6 Thumbnail" class="row_poster">
+<img src="./small-movie7.jpg" alt="Movie 7 Thumbnail" class="row_poster">
+<img src="./small-movie8.jpg" alt="Movie 8 Thumbnail" class="row_poster">
+
+<div id="myModal" class="modal">
+    <span class="close">&times;</span>
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <video controls>
+            <source id="modalVideo" src="" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+
+        <div class="description" id="modalDescription">
+            <p>Movie Description: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla accumsan, metus ultrices eleifend gravida.</p>
+        </div>
+
+        <div class="options">
+            <button>Download</button>
+        </div>
+
+        <div class="recommended">
+            <h3>Recommended Videos</h3>
+            <img src="recommended1.jpg" alt="Recommended Video 1">
+            <img src="recommended2.jpg" alt="Recommended Video 2">
+            <img src="recommended3.jpg" alt="Recommended Video 3">
+        </div>
+    </div>
+</div>     
+        </div>
+    </div>
+
+     
+    <div class="container-fluid container7">
+        <div class="row row11 "></div>
+        <div class="row row12">
+        <div class="col-xl-2 column4">
+            <ul>
+                <a href=""><li>Questions? Contact us.</li></a>
+                <a href=""><li>FAQ</li></a>
+                <a href=""><li>Investor Relations</li></a>
+                <a href=""><li>Privacy</li></a>
+                <a href=""><li>Speed Test</li></a>
+                <a href=""><li>
+                    <button class="btn w-50 dropdown-toggle" style="background-color:rgb(66, 64, 64); color: white; text-decoration: none;  border: none;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        English
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#">English</a>
+                         <a class="dropdown-item" href="#">English</a>
+                       
+                      </div></li></a>
+                <a href=""><li>Netflix Pakistan</li></a>
+            </ul>
+        </div>
+        <div class="col-xl-2  column5">
+            <ul>
+                <a href=""><li>
+                    Help Center</li></a>
+                    <a href=""><li>Jobs</li></a>
+                    <a href=""><li>
+                        Cookie Preferences</li></a>
+                    <a href="">
+                        <li>
+                            Legal Notices</li>
+                    </a>
+            </ul>
+        </div>
+        <div class="col-xl-2   column6">
+            <ul>
+                <a href=""><li>
+                    Account</li></a>
+                    <a href=""><li>Ways to Watch</li></a>
+                    <a href=""><li>
+                        Corporate Information</li></a>
+                        <a href=""><li>Only on Netflix</li></a>
+            </ul>
+        </div>
+        <div class="col-xl-2  column7">
+            <ul>
+                <a href=""><li>
+                    Media Center</li></a>
+                    <a href=""><li>
+                        Terms of Use</li></a>
+                        <a href=""><li>Contact Us</li></a>
+            </ul>
+        </div>
+        </div>
+    </div>
+   
+
+
+<script>
+// const navbar_Data=[
+//     {
+//         nav:'Home'
+//     },
+//     {
+//         nav:''
+//     },
+//     {
+//         nav:'Movies'
+//     },
+//     {
+//         nav:'News and Populars'
+//     },
+//     {
+//         nav:'My list'
+//     },
+//     {
+//         nav:'Browse my Languages'
+//     },
+//     {
+//         nav:'KRAVEN'
+//     },
+//     {
+//         nav:'A new trailer for "Kraven" reveals the complex relationship between Nikolai and his son, exploring themes of hunting, legacy, and identity.'
+//     },
+//     {
+//         nav:'Netflix Originals'
+//     },
+//     {
+//         nav:'Trending Now'
+//     },
+//     {
+//         nav:'Top Rated'
+//     },
+//     {
+//         nav:'In the first season, we followed the early days and rise to stardom of the Sun of Mexico. Relive the best and worst moments of Luis Miguel, alongside his father Luisito Rey, and his mother, Marcela Basteri. Dont miss the premiere of the second season of Luis Miguel, The Series this April 18th, only on Netflix.'
+//     },
+// ]
+// document.getElementById('A1').innerHTML = navbar_Data[0].nav;
+// document.getElementById('A2').innerHTML = navbar_Data[1].nav;
+// document.getElementById('A3').innerHTML = navbar_Data[2].nav;
+// document.getElementById('A4').innerHTML = navbar_Data[3].nav;
+// document.getElementById('A5').innerHTML = navbar_Data[4].nav;
+// document.getElementById('A6').innerHTML = navbar_Data[5].nav;
+// document.getElementById('head1').innerHTML = navbar_Data[6].nav;
+// document.getElementById('para1').innerHTML = navbar_Data[7].nav;
+// document.getElementById('head2').innerHTML = navbar_Data[8].nav;
+// document.getElementById('head3').innerHTML = navbar_Data[9].nav;
+// document.getElementById('head4').innerHTML = navbar_Data[10].nav;
+
+
+    
+
+    window.addEventListener('scroll', () => {
+        if(window.scrollY >= 100){
+            nav.classList.add('nav_black')
+        }
+        else{
+            nav.classList.remove('nav_black')
+        }
+    })
+
+// Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+            modal.style.display = "none";
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+
+        // Get all images and set up click event
+        var images = document.getElementsByClassName("row_posterLarge");
+        var modalVideo = document.getElementById("modalVideo");
+        var modalDescription = document.getElementById("modalDescription");
+
+        var videoSources = {
+            "Movie 2 Thumbnail": "video2.mp4",
+            "Movie 3 Thumbnail": "video3.mp4",
+            "Movie 4 Thumbnail": "video4.mp4",
+            "Movie 5 Thumbnail": "video5.mp4",
+            "Movie 6 Thumbnail": "video6.mp4",
+            "Movie 7 Thumbnail": "video7.mp4",
+            "Movie 8 Thumbnail": "video8.mp4"
+        };
+
+        var descriptions = {
+            "Movie 2 Thumbnail": "Description for Movie 2.",
+            "Movie 3 Thumbnail": "Description for Movie 3.",
+            "Movie 4 Thumbnail": "Description for Movie 4.",
+            "Movie 5 Thumbnail": "Description for Movie 5.",
+            "Movie 6 Thumbnail": "Description for Movie 6.",
+            "Movie 7 Thumbnail": "Description for Movie 7.",
+            "Movie 8 Thumbnail": "Description for Movie 8."
+        };
+
+        for (var i = 0; i < images.length; i++) {
+            images[i].onclick = function () {
+                var altText = this.alt;
+                modal.style.display = "block";
+                modalVideo.src = videoSources[altText];
+                modalDescription.innerHTML = "<p>" + descriptions[altText] + "</p>";
+            };
+        }
+       
+       // Get the modal
+       var modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function () {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function (event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+
+// Get all images and set up click event
+var images = document.getElementsByClassName("row_poster");
+var modalVideo = document.getElementById("modalVideo");
+var modalDescription = document.getElementById("modalDescription");
+
+var videoSources = {
+    "Movie 2 Thumbnail": "video2.mp4",
+    "Movie 3 Thumbnail": "video3.mp4",
+    "Movie 4 Thumbnail": "video4.mp4",
+    "Movie 5 Thumbnail": "video5.mp4",
+    "Movie 6 Thumbnail": "video6.mp4",
+    "Movie 7 Thumbnail": "video7.mp4",
+    "Movie 8 Thumbnail": "video8.mp4"
+};
+
+var descriptions = {
+    "Movie 2 Thumbnail": "Description for Movie 2.",
+    "Movie 3 Thumbnail": "Description for Movie 3.",
+    "Movie 4 Thumbnail": "Description for Movie 4.",
+    "Movie 5 Thumbnail": "Description for Movie 5.",
+    "Movie 6 Thumbnail": "Description for Movie 6.",
+    "Movie 7 Thumbnail": "Description for Movie 7.",
+    "Movie 8 Thumbnail": "Description for Movie 8."
+};
+
+for (var i = 0; i < images.length; i++) {
+    images[i].onclick = function () {
+        var altText = this.alt;
+        modal.style.display = "block";
+        modalVideo.src = videoSources[altText];
+        modalDescription.innerHTML = "<p>" + descriptions[altText] + "</p>";
+    };
+}
+</script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who's Watching?</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            text-align: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-pic {
+            border-radius: 10px;
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            transition: border 0.3s;
+        }
+        .profile-pic:hover {
+            border: 2px solid gray;
+        }
+        .profile-name {
+            margin-top: 10px;
+        }
+        .profile-container {
+            display: inline-block;
+        }
+        .add-profile {
+            background-color: grey;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            color: black;
+        }
+        .name{
+            margin-left: -32%;
+            margin-top: 17%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Who's watching?</h1>
+        <div class="row justify-content-center mt-4">
+            <div class="col-6 col-sm-3 col-md-2 profile-container">
+                <img src="./AAAABcneBldkGcbgYjPgwnW-HRjOJ93AwX39sxZ2FAj4IPlGtigiVmEXnXGteXkpfXhQLoHHFocRZjxundCZlmgei__FL_RnasQBgkuv.png" alt="Profile 1" class="profile-pic">
+              <a style="text-decoration:none;color:white;" href="./main.html"><div class="profile-name">Harm</div></a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-2 profile-container">
+                <img src="./AAAABfjwXqIYd3kCEU6KWsiHSHvkft8VhZg0yyD50a_pHXku4dz9VgxWwfA2ontwogStpj1NE9NJMt7sCpSKFEY2zmgqqQfcw1FMWwB9.png" alt="Profile 2" class="profile-pic">
+                <a style="text-decoration:none;color:white;" href="./main.html"><div class="profile-name">Arooba</div></a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-2 profile-container">
+                <img src="./AAAABR1GnRf0_dbvplZupQ3I7YKJRxy_xN7swRjLCxz6ZpZ05Z-sbJiMEc_h1n-B67siRR27T_s9ItTeK8_mZQqVoBN4spaYe0gZZAuZ.png" alt="Profile 3" class="profile-pic">
+                <a style="text-decoration:none;color:white;" href="./main.html"><div class="profile-name">Areeba</div></a>
+            </div>
+            <div class="col-6 col-sm-3 col-md-2 profile-container">
+                <div class="add-profile">
+                    <span>+</span>
+                </div>
+                <div class="profile-name name">Add Profile</div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <button class="btn btn-outline-light">Manage Profiles</button>
+        </div>
+    </div>
+
+</body>
+</html>

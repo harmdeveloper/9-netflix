@@ -1,0 +1,21 @@
+{
+	"folders": [
+		{
+			"path": "E:/Vscode for java/myfirstproject"
+		}
+	],
+	"settings": {
+		"java.project.sourcePaths": [
+			"src"
+		],
+		"java.project.outputPath": "bin",
+		"java.project.referencedLibraries": [
+			"lib/**/*.jar"
+		],
+		"C_Cpp.errorSquiggles": "disabled"
+	},
+	"launch": {
+		"version": "0.2.0",
+		"configurations": []
+	}
+}
